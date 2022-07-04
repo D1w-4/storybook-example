@@ -1,0 +1,57 @@
+<!-- Icons.stories.mdx -->
+
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+import { IconsExample } from "./examples/Icons.example";
+import IconsExampleSource from "!raw-loader!./examples/Icons.example";
+import { Icons } from "./Icons";
+
+<Meta
+  title="Example/Icons"
+  component={Icons}
+  parameters={{
+    backgrounds: {
+      default: "dark",
+      values: [
+        { name: "dark", value: "#1c1c21" },
+        { name: "light", value: "#4c4cff" },
+      ],
+    },
+  }}
+  argTypes={{
+    type: {
+      description: "Определяет цвет иконок",
+      options: ["primary", "secondary", "error", "success"],
+      control: { type: "radio" },
+      defaultValue: "error",
+      table: {
+        category: "Внешний вид",
+      },
+    },
+    onClick: {
+      description: "Обработчик нажатия на иконку",
+      table: {
+        category: "Событие",
+      },
+    },
+  }}
+/>
+
+export const Template = (args) => <Icons {...args} />;
+
+# Icons
+
+Элемент `Icons`
+
+<Canvas isColumn>
+  <Story name="argTypes">{Template.bind({})}</Story>
+</Canvas>
+
+<ArgsTable story="argTypes" />
+
+# Пример использования
+
+Корректный пример кода для использования `Icons`
+
+<Canvas mdxSource={IconsExample}>
+  <Story name="Example">{Template.bind({})}</Story>
+</Canvas>
