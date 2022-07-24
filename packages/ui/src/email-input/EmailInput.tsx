@@ -16,3 +16,4 @@ export function EmailInput(props: IEmailInputProps): JSX.Element {
     <YA_EmailInput {...props} />
   );
 };
+
